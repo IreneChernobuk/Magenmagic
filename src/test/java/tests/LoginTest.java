@@ -1,6 +1,8 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
 import constants.Credentials;
+import io.qameta.allure.*;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -9,9 +11,14 @@ import pages.AccountPage;
 import pages.MainPage;
 import utils.FakerMessageGenerator;
 
+@Epic("Smoke")
+@Feature("Login")
+@Story("Login registered user")
 public class LoginTest extends BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(LoginTest.class.getName());
 
+    @Description("Log in registered user with valid data")
+    @Severity(SeverityLevel.BLOCKER)
     @Test
     public void loginValidDataTest() {
         MainPage mainPage = new MainPage();
@@ -25,8 +32,11 @@ public class LoginTest extends BaseTest {
         accountPage.logIn(Credentials.USEREMAIL, Credentials.PASSWORD);
         Assert.assertTrue(accountPage.isPageTitleDisplayed(), "Login failed");
         LOGGER.info("Login completed successfully");
+        Selenide.clearBrowserCookies();
     }
 
+    @Description("Log in registered user with invalid data")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void loginInvalidDataTest() {
         MainPage mainPage = new MainPage();
@@ -40,5 +50,6 @@ public class LoginTest extends BaseTest {
         LOGGER.info("Input invalid EMAIL and PASSWORD");
         Assert.assertTrue(accountPage.isErrorMessageDisplayed(), "User is logged in");
         LOGGER.info("Login completed unsuccessfully");
+        Selenide.clearBrowserCookies();
     }
 }
