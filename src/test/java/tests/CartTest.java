@@ -1,15 +1,19 @@
 package tests;
 
 import constants.Credentials;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountPage;
 import pages.AllExtensionsPage;
 import pages.MainPage;
 
-public class CartTest {
+public class CartTest extends BaseTest{
+    private static final Logger LOGGER = LogManager.getLogger(CartTest.class.getName());
+
     @Test
-    public void addProductMyCart(){
+    public void addProductMyCart() {
         MainPage mainPage = new MainPage();
         mainPage.openMainPage();
         mainPage.clickAccountElement();

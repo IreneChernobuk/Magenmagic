@@ -1,7 +1,11 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeSuite;
+import pages.AccountPage;
+
 import java.awt.*;
 
 public class BaseTest {

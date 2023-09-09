@@ -11,7 +11,8 @@ public class FakerMessageGenerator {
     public static String generatePassword() {
         return new Faker().internet().password();
     }
-    public static Integer generateNumberItem(){
-        return new Faker().number().numberBetween(0,11);
+
+    public static Integer generateNumberItem() {
+        return new Faker().number().numberBetween(0, 11);
     }
 }
