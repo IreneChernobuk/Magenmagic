@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest{
         mainPage.openMainPage();
         mainPage.clickAccountElement();
         AccountPage accountPage = new AccountPage();
-        accountPage.logIn(Credentials.USERNAME, Credentials.PASSWORD);
+        accountPage.logIn(Credentials.USEREMAIL, Credentials.PASSWORD);
         Assert.assertTrue(accountPage.isPageTitleDisplayed(), "Login failed");
     }
 

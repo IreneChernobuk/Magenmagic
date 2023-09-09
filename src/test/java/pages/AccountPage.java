@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class AccountPage {
@@ -22,7 +23,7 @@ public class AccountPage {
         return PageTitle.shouldHave(Condition.exactText("My Account")).isDisplayed();
     }
 
-    public boolean isErrorMessageDisplayed (){
+    public boolean isErrorMessageDisplayed() {
         return ErrorMessage.shouldBe(Condition.visible).isDisplayed();
     }
 }
