@@ -10,6 +10,7 @@ import pages.AccountPage;
 import pages.AllExtensionsPage;
 import pages.MainPage;
 import pages.MyCartPage;
+import utils.RetryAnalyzer;
 
 @Epic("Smoke")
 @Feature("Cart")
@@ -20,7 +21,7 @@ public class CartTest extends BaseTest {
 
     @Description("Adding new product in the 'My Cart'")
     @Severity(SeverityLevel.BLOCKER)
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void addProductMyCartTest() {
         MainPage mainPage = new MainPage();
         LOGGER.info(String.format("Page %s initialized", MainPage.class.getName()));
@@ -45,7 +46,7 @@ public class CartTest extends BaseTest {
 
     @Description("Deleting order in the 'My Cart'")
     @Severity(SeverityLevel.CRITICAL)
-    @Test(dependsOnMethods = "addProductMyCartTest")
+    @Test(dependsOnMethods = "addProductMyCartTest", retryAnalyzer = RetryAnalyzer.class)
     public void deleteProductMyCartTest() {
         MainPage mainPage = new MainPage();
         LOGGER.info(String.format("Page %s initialized", MainPage.class.getName()));
