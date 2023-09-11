@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import constants.Credentials;
 import io.qameta.allure.*;
 import org.apache.log4j.LogManager;
@@ -38,7 +37,5 @@ public class PaymentTest extends BaseTest {
         CheckoutPage checkoutPage = new CheckoutPage();
         LOGGER.info(String.format("Page %s opened", MyCartPage.class.getName()));
         Assert.assertTrue(checkoutPage.isPlaceOrderButtonDisplayed(), "There is no way to make payment");
-        LOGGER.info("It's possible to continue the payment");
-        Selenide.clearBrowserCookies();
     }
 }

@@ -16,6 +16,7 @@
         <selenide.version>6.18.0</selenide.version>
         <log4j.version>1.2.17</log4j.version>
         <javafaker.version>1.0.2</javafaker.version>
+        <lombok.version>1.18.26</lombok.version>
         <allure-testng.version>2.21.0</allure-testng.version>
         <suiteXmlFile>src/test/resources/testsuites/Suite.xml</suiteXmlFile>
     </properties>
@@ -51,6 +52,20 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

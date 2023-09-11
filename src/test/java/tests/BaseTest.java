@@ -2,13 +2,14 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
-import pages.AccountPage;
+import org.testng.annotations.Listeners;
+import utils.TestListeners;
 
 import java.awt.*;
 
+@Listeners(TestListeners.class)
 public class BaseTest {
     @BeforeSuite
     public void setUp() {
@@ -17,6 +18,10 @@ public class BaseTest {
         int width = (int) size.getWidth();
         int height = (int) size.getHeight() - 50;
         Configuration.browserSize = String.format("%dx%d", width, height);
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void clearCookies() {
         Selenide.clearBrowserCookies();
     }
 }

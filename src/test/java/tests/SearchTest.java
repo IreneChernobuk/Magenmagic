@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.*;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -30,6 +29,5 @@ public class SearchTest extends BaseTest {
         LOGGER.info(String.format("Page %s initialized", MainPage.class.getName()));
         Assert.assertTrue(searchResultsPage.checkFoundResult(titleExtension), "Element wasn't found on the page");
         LOGGER.info("Element was found on the page");
-        Selenide.clearBrowserCookies();
     }
 }

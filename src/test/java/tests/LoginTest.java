@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import constants.Credentials;
 import io.qameta.allure.*;
 import org.apache.log4j.LogManager;
@@ -32,7 +31,6 @@ public class LoginTest extends BaseTest {
         accountPage.logIn(Credentials.USEREMAIL, Credentials.PASSWORD);
         Assert.assertTrue(accountPage.isPageTitleDisplayed(), "Login failed");
         LOGGER.info("Login completed successfully");
-        Selenide.clearBrowserCookies();
     }
 
     @Description("Log in registered user with invalid data")
@@ -50,6 +48,5 @@ public class LoginTest extends BaseTest {
         LOGGER.info("Input invalid EMAIL and PASSWORD");
         Assert.assertTrue(accountPage.isErrorMessageDisplayed(), "User is logged in");
         LOGGER.info("Login completed unsuccessfully");
-        Selenide.clearBrowserCookies();
     }
 }

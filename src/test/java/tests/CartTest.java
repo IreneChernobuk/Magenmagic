@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import constants.Credentials;
 import io.qameta.allure.*;
 import org.apache.log4j.LogManager;
@@ -16,7 +15,6 @@ import pages.MyCartPage;
 @Feature("Cart")
 @Story("Creating and deleting order")
 public class CartTest extends BaseTest {
-
     private static final Logger LOGGER = LogManager.getLogger(CartTest.class.getName());
     String titleExtension;
 
@@ -43,7 +41,6 @@ public class CartTest extends BaseTest {
         LOGGER.info(String.format("received extension title: '%s'", titleExtension));
         allExtensPage.addToCartExtension();
         Assert.assertEquals(mainPage.getNumberOfOrders(), NumberOfOrders, "product didn't add");
-        Selenide.clearBrowserCookies();
     }
 
     @Description("Deleting order in the 'My Cart'")
@@ -65,7 +62,5 @@ public class CartTest extends BaseTest {
         myCartPage.clickCrossIcon(titleExtension);
         LOGGER.info("Extension was removed");
         Assert.assertFalse(myCartPage.checkCartAfterRemove(titleExtension), "Extension was not deleted");
-        LOGGER.info("There isn't relevant extension 'My Cart'");
-        Selenide.clearBrowserCookies();
     }
 }

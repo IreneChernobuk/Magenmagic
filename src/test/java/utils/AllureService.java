@@ -1,19 +1,19 @@
 package utils;
 
+import com.codeborne.selenide.Screenshots;
+import com.google.common.io.Files;
 import io.qameta.allure.Attachment;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import lombok.SneakyThrows;
+
+import java.io.File;
+
 
 public class AllureService {
-    @Attachment(value = "screenshot", type = "image/png")
-    public byte[] takeScreenshot(WebDriver driver) {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        return takesScreenshot.getScreenshotAs(OutputType.BYTES);
-    }
-
-    @Attachment
-    public String getSystemName() {
-        return System.getProperty("os.name");
+    @Attachment(type = "image/png")
+    @SneakyThrows
+    public byte[] screenshot() {
+        File screenshot;
+        screenshot = Screenshots.takeScreenShotAsFile();
+        return screenshot == null ? null : Files.toByteArray(screenshot);
     }
 }

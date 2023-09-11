@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import constants.Credentials;
 import io.qameta.allure.*;
 import org.apache.log4j.LogManager;
@@ -38,7 +37,5 @@ public class ProductTest extends BaseTest {
         ProductPage productPage = new ProductPage();
         LOGGER.info(String.format("Page %s opened", ProductPage.class.getName()));
         Assert.assertTrue(productPage.isAddToCartButtonDisplayed(), "Failed to go tj the product page");
-        LOGGER.info("Went to the page for more details");
-        Selenide.clearBrowserCookies();
     }
 }
